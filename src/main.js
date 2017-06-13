@@ -4,11 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-/*import axios from 'axios'
+import axios from 'axios'
 
-Vue.prototype.$http = axios;*/
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
+Vue.prototype.$http = axios;
+/*import VueResource from 'vue-resource'
+Vue.use(VueResource)*/
 
 Vue.config.productionTip = false;
 
@@ -16,7 +16,9 @@ import MyPlugin from './assets/js/common.js'
 Vue.use(MyPlugin)
 
 const JQ = require('./assets/js/jquery-1.12.2.min.js');
+const Url = require('./assets/js/url.js');
 
+Vue.prototype.$Url = Url;
 //页码公共组件
 import pagination from './components/common/pagination/index.js';
 Vue.use(pagination)

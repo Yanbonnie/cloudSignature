@@ -23,7 +23,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 /*数据接口*/
-var appData = require('../data.json') // 获取数据
+/*var appData = require('../data.json') // 获取数据
 var seller = appData.seller; 
 var apiRoutes = express.Router;
 
@@ -37,7 +37,7 @@ apiRoutes.get('/seller',
 	}
 ); 
 app.use('/api',apiRoutes);
-app.listen(8082);
+app.listen(8080);*/
 
 /*app.use('/mock',express.static('../mock'));*/
 var compiler = webpack(webpackConfig)

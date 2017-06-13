@@ -68,33 +68,17 @@ export default {
 	},
 	methods:{
 		getData(){
-			/*$.ajax({
-				type: "GET",
-				url: "/api/seller?id="+123456,
-				 //data: {username:$("#username").val(), content:$("#content").val()},
-				dataType: "json",
-				success: function(data){
-					console.log(data)
-				}
-			});*/
-			/*this.$http.get('/api/seller',{ 
-				params: { ID: 12345 } 
-			}).then(function (response) { 
+			this.$http.get(this.$Url.default.login).then(function (response) { 
 				console.log(response); 
 			}) 
 			.catch(function (error) { 
 				console.log(error); 
-			});*/
-			
-			this.$http.get('/api/seller').then(response => {
-				console.log(response.body)
-			  }, response => {
-				console.log(response)
-			})
+			});
 		}
 	},
 	mounted(){
 		this.getData();
+		console.log()
 	}
 }
 </script>
