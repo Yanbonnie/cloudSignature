@@ -42,6 +42,13 @@ router.beforeEach((to, from, next) => {
 	if(to.name == "CaOrganization" || to.name == "PasswordSeeting"){
 		store.dispatch('changeState',3); 
 	}
+	
+	if(to.name == 'Login'){
+		store.dispatch('changeMenu',false); 
+	}else{
+		store.dispatch('changeMenu',true); 
+	}
+	
 	next();
 })
 

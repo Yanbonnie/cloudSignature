@@ -15,12 +15,13 @@
                                 <img class="userPhoto" src="../assets/images/img.jpg">
                                 
                                 <h3 id="menuDisplayNameText " class="shengl">用户名</h3>
-                               
-                                <a id="indLogoutIcon" href="/logout">
-                                    <i class=" icon-sign-out-1" title="退出"></i>
+								<h3 class="time"><i class="iconfont  icon-iconfontriyongbaihuo"></i>&nbsp;{{currentData}}</h3>
+                                <a id="indLogoutIcon" @click="signoutHandle">
+                                    <i class="iconfont icon-tuichu" title="退出" ></i>
+									
                                 </a>
                             </li>
-                            <li class="list-li" :class="[curClassStatus == 1 ? 'active' : '']"><a class="title"><i class="icon-group"></i>信息维护</a>
+                            <li class="list-li" :class="[curClassStatus == 1 ? 'active' : '']"><a class="title"><i class="iconfont  icon-set"></i>信息维护</a>
                                 <ul class="child_menu">
                                     <li>
                                         <router-link to="/application">应用管理</router-link>
@@ -29,7 +30,7 @@
                                      
                                 </ul>
                             </li>
-							<li class="list-li" :class="[curClassStatus == 2 ? 'active' : '']"><a class="title"><i class="icon-group"></i>证据日志</a>
+							<li class="list-li" :class="[curClassStatus == 2 ? 'active' : '']"><a class="title"><i class="iconfont icon-templatedefault"></i>证据日志</a>
                                 <ul class="child_menu">
                                     <li>
                                         <router-link to="/log">操作日志</router-link>
@@ -37,7 +38,7 @@
                                      
                                 </ul>
                             </li>	
-							<li class="list-li" :class="[curClassStatus == 3 ? 'active' : '']"><a class="title"><i class="icon-group"></i>系统管理</a>
+							<li class="list-li" :class="[curClassStatus == 3 ? 'active' : '']"><a class="title"><i class="iconfont icon-assessedbadge"></i>系统管理</a>
                                 <ul class="child_menu">
                                     <li>
                                         <router-link to="/ca_organization">CA机构设置</router-link>
@@ -59,6 +60,7 @@ export default {
 	name: 'menu_left',
 	data () {
 		return {
+			currentData:null
 		}
 	},
 	computed:{
@@ -74,11 +76,17 @@ export default {
 			.catch(function (error) { 
 				console.log(error); 
 			});
+		},
+		signoutHandle(){
+			this.$router.replace({ path: 'login'})
+		},
+		getTest(){
+			
 		}
 	},
 	mounted(){
-		this.getData();
-		console.log()
+		this.currentData = this.getDataFn().currentdate;
+		//this.getData();
 	}
 }
 </script>
@@ -86,7 +94,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 @import '../assets/css/base.scss';
-@import '../assets/css/font2/font.css';
+@import '../assets/css/font/iconfont.css';
 .router-link-active{
   color: $pink !important;
 }
@@ -129,6 +137,11 @@ export default {
 	h3{
 		text-align:center;
 		color:#fff;
+		line-height:30px;
+		&.time{
+			color:#ccc;
+			font-weight:normal; 
+		}
 	}
 	a{
 		text-align:center;
@@ -172,6 +185,12 @@ export default {
           font-size:20px;
           color:$pink;
         }
+		img{
+			width:18px;
+			height:20px;
+			display:block;
+			margin:0 auto;
+		}
       }
       .child_menu{	
         li{

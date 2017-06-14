@@ -13,6 +13,7 @@ const CaOrganization = resolve => require(['@/components/ca_organization'], reso
 const PasswordSeeting = resolve => require(['@/components/password_setting'], resolve);
 
 export default new Router({
+  //mode: 'history',
   routes: [
     {
       path: '/login',
@@ -43,6 +44,10 @@ export default new Router({
 		path: '/password_setting',
 		name: 'PasswordSeeting',
 		component: PasswordSeeting
+	},
+	{
+		path:"*",
+		redirect:"/login"
 	}
   ]
 })

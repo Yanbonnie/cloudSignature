@@ -131,6 +131,9 @@ body{
 				overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
 				text-overflow:ellipsis;
 			}
+			&.title{
+				background:#EFF8FE;
+			}
 		}
 	}
 	.table-six{

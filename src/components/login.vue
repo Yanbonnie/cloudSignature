@@ -1,20 +1,28 @@
 <template>
 	<div class="login">
 		<div class="login_box">
-			<input type="text" placeholder="ukey密码"/>
-			<input type="password" placeholder="请输入密码"/>
-			<input type="button" value="确认登录" />
+			<input type="text" v-model="ukey" placeholder="ukey"/>
+			<input type="password" v-model="pasword" placeholder="请输入密码"/>
+			<input type="button" value="确认登录" @click="submitHandle"/>
 		</div>
 	</div>
 </template>
 <script>
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+	name: 'hello',
+	data () {
+		return {
+		ukey:"",
+		pasword:""
+		}
+	},
+	methods:{
+		submitHandle(){
+			if($.trim(this.ukey) == "aa" && $.trim(this.pasword) == "aa"){
+				this.$router.replace({ path: 'application'})
+			}
+		}
+	}
 }
 </script>
 <style lang="scss" scoped>

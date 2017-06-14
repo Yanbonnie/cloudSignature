@@ -25,7 +25,7 @@
 			</div>
 			<div class="panel-box">
 				<ul class="table table-six Irregular"> 
-					<li> 
+					<li class="title"> 
 						<span>&nbsp;</span>
 						<span>应用编号</span>
 						<span>应用名称</span>
@@ -33,47 +33,92 @@
 						<span>创建人</span>
 						<span>操作</span>
 					</li>
-					<li> 
-						<span>1</span>
-						<span>GDCATest</span>
-						<span>GDCA测试应用</span>
-						<span>2011-11-10 15:27:46</span>
-						<span>aa</span>
-						<span><a href="#">修改</a></span>
-					</li>
-					<li> 
-						<span>2</span>
-						<span>GDCATest</span>
-						<span>GDCA测试应用</span>
-						<span>2011-11-10 15:27:46</span>
-						<span>aa</span>
+					<li v-for="(item,index) in list"> 
+						<span>{{index+1}}</span>
+						<span>{{item.identifier}}</span>
+						<span>{{item.name}}</span>
+						<span>{{item.createTime}}</span>
+						<span>{{item.createUser}}</span>
 						<span><a href="#">修改</a></span>
 					</li>
 				</ul>
 				<div class="page-box"> 
-					<pagination  :total="10" :currentpage="1" :display="5"  @pagechange="pageChangeHandel"></pagination>
+					<pagination  :total="totalPage" :currentpage="currentPage" :display="5"  @pagechange="pageChangeHandel"></pagination>
 				</div>
 			</div>
 		</div>	
 	</div>
 </template>
 <script>
+var application = {
+			"meta":{
+				"success":true
+			},
+			"data":{
+				"lists":[
+					{
+						"identifier":"GDCATest",
+						"name":"GDCA测试应用",
+						"createTime":"2011-11-10 15:27:46",
+						"createUser":"aa"
+					},
+					{
+						"identifier":"GS001",
+						"name":"省国税",
+						"createTime":"2011-11-10 10:01:12",
+						"createUser":"aa"
+					}
+				],
+				"totalPage":2,
+				"currentPage":1
+			}
+		}
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      list:[],
+	  totalPage:null,
+	  currentPage:null
     }
   },
   methods:{
+	getData(){
+		/*
+		this.httpGet(this.$Url.default.application,{},function(res){
+			var result = res.data;
+			if(result.meta.success){
+				this.list = result.data.lists;
+				this.totalPage = result.data.totalPage;
+				this.currentPage = result.data.currentPage;
+			}
+		}.bind(this))*/
+		
+		
+		/*this.list = result.data.lists;
+		this.totalPage = result.data.totalPage;
+		this.currentPage = result.data.currentPage;
+		
+		*/
+		
+		var result = application;
+		if(result.meta.success){
+			this.list = result.data.lists;
+			this.totalPage = result.data.totalPage;
+			this.currentPage = result.data.currentPage;
+		}
+	},
 	pageChangeHandel(currentPage){
-		console.log(currentPage)
+		console.log(currentPage);
+		this.currentPage = currentPage;
 	}
+  },
+  mounted(){
+	this.getData();
   }
 }
 </script>
 <style lang="scss" scoped>
 @import '../assets/css/base.scss';
-@import '../assets/css/font2/font.css';
 @import '../assets/css/index.scss';
 </style>

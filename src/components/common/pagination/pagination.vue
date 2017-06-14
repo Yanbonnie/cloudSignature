@@ -1,5 +1,6 @@
 <template>
-	<div class="pagination-box" v-show="page > 1">
+	<!--<div class="pagination-box" v-show="page > 1">-->
+	<div class="pagination-box">
 		<ul class="pagination">
 			<li :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(1)"> 首页 </a></li>
 			<li :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(current - 1)"> 上一页 </a></li> 

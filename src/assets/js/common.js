@@ -1,5 +1,20 @@
 exports.install = function (Vue, options) { 
   
+  
+  Vue.prototype.httpGet=function(url,data,success){
+
+      /*开发*/
+      this.$http.get(url+"?data="+new Date().getTime(),
+     	{
+     		params:data,
+     		headers: {'X-Requested-With':'XMLHttpRequest'}
+     	})
+		.then(success)
+		.catch(function(res){
+			console.log(res)
+		})
+  };
+  
   Vue.prototype.alertCommonTip=function(msg){
       if(msg == "login.timeout"){
         msg = "用户登录已过期";
