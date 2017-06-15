@@ -20,61 +20,70 @@
 				</div>
 			</div>
 			<div class="panel-box">
-				<table class="table-box"> 
-					<tr><th colspan="2">证书信息项</th></tr>
-					<tr> 
-						<td width="150px;">证书密钥标识符：</td>
-						<td><input type="text" v-model="identifier" /><label for="">必填</label></td>
-					</tr>
-					<tr> 
-						<td>导入证书</td>
-						<td class="more-td"> 
-							<p class="clf"> 
-								<label for="">导入证书：</label>
-								<select name="" id="" v-model="selected">
-									<option :value="0">一级</option>
-									<option :value="1">二级</option>
-									<option :value="2">三级</option>
-								</select>
-							</p>
-							<p class="clf">
-								<label for="">根证书：</label>
-								<input type="text"  v-model="certifibook[0]"/>
-							</p>
-							<p class="clf"  v-if="certifibook.length >= 2">
-								<label for="">二级证书：</label>
-								<input type="text"  v-model="certifibook[1]"/>
-							</p>
-							<p class="clf" v-if="certifibook.length >= 3">
-								<label for="">三级证书：</label>
-								<input type="text"  v-model="certifibook[2]"/>
-							</p>
-						</td>
-					</tr>
-				</table>
-				<table class="table-box mt25"> 
-					<tr><th colspan="2">CA接口项</th></tr>
-					<tr> 
-						<td width="150px;">数据同步接口地址：</td>
-						<td><input type="text" v-model="interface.application"/><label for="">必填</label></td>
-					</tr>
-					<tr> 
-						<td width="150px;">应用开通接口地址：</td>
-						<td><input type="text" v-model="interface.correspond"/><label for="">必填</label></td>
-					</tr>
-					<tr> 
-						<td width="150px;">接口通信证书：</td>
-						<td><input type="text" v-model="interface.sjdata" /><label for="">必填</label></td>
-					</tr>
-					<tr> 
-						<td width="150px;">数据导入验证证书：</td>
-						<td><input type="text" v-model="interface.verification"/><label for="">必填</label></td>
-					</tr>
-					<tr> 
-						<td width="150px;" v-model="interface.crl">CRL地址：</td>
-						<td><input type="text" /></td>
-					</tr>
-				</table>
+				<form action="">
+					<table class="table-box"> 
+						<tr><th colspan="2">证书信息项</th></tr>
+						<tr> 
+							<td width="150px;">证书密钥标识符：</td>
+							<td><input type="text" v-model="identifier" /><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td>导入证书</td>
+							<td class="more-td"> 
+								<p class="clf"> 
+									<label for="">导入证书：</label>
+									<select name="" id="" v-model="selected">
+										<option :value="0">一级</option>
+										<option :value="1">二级</option>
+										<option :value="2">三级</option>
+									</select>
+								</p>
+								<p class="clf">
+									<label for="">根证书：</label>
+									<input type="text"  v-model="certifibook[0]"/>
+								</p>
+								<p class="clf"  v-if="certifibook.length >= 2">
+									<label for="">二级证书：</label>
+									<input type="text"  v-model="certifibook[1]"/>
+								</p>
+								<p class="clf" v-if="certifibook.length >= 3">
+									<label for="">三级证书：</label>
+									<input type="text"  v-model="certifibook[2]"/>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="table-box mt25"> 
+						<tr><th colspan="2">CA接口项</th></tr>
+						<tr> 
+							<td width="150px;">数据同步接口地址：</td>
+							<td><input type="text" v-model="interface.application"/><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td width="150px;">应用开通接口地址：</td>
+							<td><input type="text" v-model="interface.correspond"/><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td width="150px;">接口通信证书：</td>
+							<td><input type="text" v-model="interface.sjdata" /><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td width="150px;">数据导入验证证书：</td>
+							<td><input type="text" v-model="interface.verification"/><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td width="150px;" v-model="interface.crl">CRL地址：</td>
+							<td><input type="text" /></td>
+						</tr>
+						<tr> 
+							<td>&nbsp;</td>
+							<td>
+								<input type="button" value="确定" />
+								<input type="reset"  value="重置"/>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
 		</div>	
 	</div>
@@ -232,6 +241,11 @@ export default {
 	  interface:{},
     }
   },
+  computed:{
+	title(){
+		return this.$store.state.title;
+	}
+  },
   methods:{
 	getData(){
 		var That = this;
@@ -291,6 +305,7 @@ export default {
   },
   mounted(){
 	this.getData();
+	document.title=this.title;
   }
 }
 </script>

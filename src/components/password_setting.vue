@@ -6,7 +6,11 @@
 					<table class="table-box mt25"> 
 						<tr><th colspan="2">密码机设置</th></tr>
 						<tr> 
-							<td width="150px;">密码机ip：</td>
+							<td width="150px;">加密机地址</td>
+							<td><input type="text" /><label for="">必填</label></td>
+						</tr>
+						<tr> 
+							<td width="150px;">加密机口令</td>
 							<td><input type="text" /><label for="">必填</label></td>
 						</tr>
 						<tr> 
@@ -34,6 +38,11 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  computed:{
+	title(){
+		return this.$store.state.title;
+	}
+  },
   methods:{
 	pageChangeHandel(currentPage){
 		console.log(currentPage)
@@ -41,6 +50,9 @@ export default {
 	changeStartDate(value){
 		console.log(value)
 	}
+  },
+  mounted(){
+	document.title=this.title;
   }
 }
 </script>

@@ -36,19 +36,36 @@ router.beforeEach((to, from, next) => {
 	if(to.name == "Application" || to.name == "userManagement"){
 		store.dispatch('changeState',1); 
 	}
-	if(to.name == "Log"){
+	if(to.name == "Log" || to.name == "LogCredible"){
 		store.dispatch('changeState',2); 
 	}
 	if(to.name == "CaOrganization" || to.name == "PasswordSeeting"){
 		store.dispatch('changeState',3); 
-	}
-	
+	}	
 	if(to.name == 'Login'){
 		store.dispatch('changeMenu',false); 
 	}else{
 		store.dispatch('changeMenu',true); 
 	}
 	
+	if(to.name == "Application"){
+		store.dispatch('changeTitle',"应用管理")
+	}
+	if(to.name == "userManagement"){
+		store.dispatch('changeTitle',"用户管理")
+	}
+	if(to.name == "Log"){
+		store.dispatch('changeTitle',"操作日志")
+	}
+	if(to.name == "LogCredible"){
+		store.dispatch('changeTitle',"可信日志查询")
+	}
+	if(to.name == "CaOrganization"){
+		store.dispatch('changeTitle',"CA机构设置")
+	}
+	if(to.name == "PasswordSeeting"){
+		store.dispatch('changeTitle',"密码机设置")
+	}
 	next();
 })
 

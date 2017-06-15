@@ -4,7 +4,7 @@
                 <div class="navbar nav_title">
                     <a href="/jsp/cus/account/accountIndex" class="site_title">
 					<!--<i></i>-->
-						云签名管理后台
+						云签管理后台
 					</a>
                 </div>
                 <div class="clearfix"></div>
@@ -12,9 +12,9 @@
                     <div class="menu_section">
                         <ul class="side-menu">
                             <li class="userInfo">
-                                <img class="userPhoto" src="../assets/images/img.jpg">
+                                <!--<img class="userPhoto" src="../assets/images/img.jpg">-->
                                 
-                                <h3 id="menuDisplayNameText " class="shengl">用户名</h3>
+                                <h3 id="menuDisplayNameText " class="shengl">aa</h3>
 								<h3 class="time"><i class="iconfont  icon-iconfontriyongbaihuo"></i>&nbsp;{{currentData}}</h3>
                                 <a id="indLogoutIcon" @click="signoutHandle">
                                     <i class="iconfont icon-tuichu" title="退出" ></i>
@@ -34,6 +34,7 @@
                                 <ul class="child_menu">
                                     <li>
                                         <router-link to="/log">操作日志</router-link>
+                                        <router-link to="/logcredible">可信日志查询</router-link>
                                     </li>
                                      
                                 </ul>

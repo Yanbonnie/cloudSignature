@@ -66,46 +66,52 @@ var log = {
 			"data":{
 				"lists":[
 					{
-						"time":"2017-02-20 11:31:11",
-						"username":"aa",
-						"style":"新增应用",
-						"loginfo":"新增应用信息，应用编号为85647，应用名称为GDCA测试应用"
+						"time":"2016-05-25 09:50:07",
+						"username":"WANGSN",
+						"style":"协同签名",
+						"loginfo":"证书序列号为70 85 65 58 55 74"
 					},
 					{
-						"time":"2016-11-25 17:53:43",
-						"username":"aa",
-						"style":"新增应用",
-						"loginfo":"新增应用信息，应用编号为544526，应用名称为省国税"
+						"time":"2017-05-20 11:31:11",
+						"username":"GDCA",
+						"style":"申请证书",
+						"loginfo":"证书序列号为25 78 15 48 46 78"
 					},
 					{
-						"time":"2016-11-03 11:00:46",
-						"username":"aa",
-						"style":"密码机设置",
-						"loginfo":"密码机设置，'设置密码机地址为192.168.20.12"
+						"time":"2016-03-26 09:47:33",
+						"username":"YANBN",
+						"style":"协同签名",
+						"loginfo":"证书序列号为60 85 65 58 55 74"
 					},
 					{
-						"time":"2016-10-25 09:50:07",
-						"username":"aa",
-						"style":"密码机设置",
-						"loginfo":"密码机设置，设置密码机密钥号为1"
+						"time":"2017-03-25 17:53:43",
+						"username":"TEST",
+						"style":"申请证书",
+						"loginfo":"证书序列号为28 78 15 48 46 78"
+					},		
+					{
+						"time":"2016-03-08 09:46:49",
+						"username":"GDCA",
+						"style":"协同签名",
+						"loginfo":"证书序列号为89 78 15 48 46 78"
 					},
 					{
-						"time":"2016-10-25 09:47:33",
-						"username":"aa",
-						"style":"CA机构设置",
-						"loginfo":"CA机构设置，设置GDCA TrustAUTH R2 CA"
+						"time":"2017-03-03 11:00:46",
+						"username":"SASD",
+						"style":"申请证书",
+						"loginfo":"证书序列号为82 85 65 58 55 74"
+					},					
+					{
+						"time":"2016-02-25 11:37:08",
+						"username":"TEST2",
+						"style":"协同签名",
+						"loginfo":"证书序列号为78 78 15 88 46 78"
 					},
 					{
-						"time":"2016-10-25 09:46:49",
-						"username":"aa",
-						"style":"CA机构设置",
-						"loginfo":"CA机构设置，设置GDCA TrustAUTH R2 CA"
-					},
-					{
-						"time":"2016-07-22 11:37:08",
-						"username":"aa",
-						"style":"修改应用",
-						"loginfo":"修改应用，修改应用编号为85647的应用名称，修改为GDCA"
+						"time":"2017-02-03 11:00:46",
+						"username":"SASD",
+						"style":"申请证书",
+						"loginfo":"证书序列号为25 78 19 48 46 77"
 					}
 				],
 				"totalPage":7,
@@ -158,7 +164,6 @@ export default {
   mounted(){
 	this.getData();
 	document.title=this.title;
-	console.log("state:"+this.$store.state.title)
   }
 }
 </script>

@@ -23,6 +23,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="clf"> 
+				<a class="addBtn">新建应用</a>
+			</div>
 			<div class="panel-box">
 				<ul class="table table-six Irregular"> 
 					<li class="title"> 
@@ -39,7 +42,7 @@
 						<span>{{item.name}}</span>
 						<span>{{item.createTime}}</span>
 						<span>{{item.createUser}}</span>
-						<span><a href="#">修改</a></span>
+						<span><a href="javascript:;">修改</a></span>
 					</li>
 				</ul>
 				<div class="page-box"> 
@@ -57,13 +60,13 @@ var application = {
 			"data":{
 				"lists":[
 					{
-						"identifier":"GDCATest",
+						"identifier":"85647",
 						"name":"GDCA测试应用",
 						"createTime":"2011-11-10 15:27:46",
 						"createUser":"aa"
 					},
 					{
-						"identifier":"GS001",
+						"identifier":"544526",
 						"name":"省国税",
 						"createTime":"2011-11-10 10:01:12",
 						"createUser":"aa"
@@ -81,6 +84,11 @@ export default {
 	  totalPage:null,
 	  currentPage:null
     }
+  },
+  computed:{
+	title(){
+		return this.$store.state.title;
+	}
   },
   methods:{
 	getData(){
@@ -115,6 +123,7 @@ export default {
   },
   mounted(){
 	this.getData();
+	document.title=this.title;
   }
 }
 </script>

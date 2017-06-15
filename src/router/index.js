@@ -9,11 +9,12 @@ const Login = resolve => require(['@/components/Login'], resolve);
 const Application = resolve => require(['@/components/application'], resolve);
 const userManagement = resolve => require(['@/components/user_management'], resolve);
 const Log = resolve => require(['@/components/log'], resolve);
+const LogCredible = resolve => require(['@/components/log_credible'], resolve);
 const CaOrganization = resolve => require(['@/components/ca_organization'], resolve);
 const PasswordSeeting = resolve => require(['@/components/password_setting'], resolve);
 
 export default new Router({
-  //mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/login',
@@ -34,6 +35,11 @@ export default new Router({
 		path: '/log',
 		name: 'Log',
 		component: Log
+	},
+	{
+		path: '/logcredible',
+		name: 'LogCredible',
+		component: LogCredible
 	},
 	{
 		path: '/ca_organization',

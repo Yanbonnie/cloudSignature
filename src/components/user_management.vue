@@ -31,7 +31,7 @@
 						<span>设备标识MobileID</span>
 						<span>联系方式</span>
 						<span>证书序列号</span>
-						<span>合同日期</span>
+						<span>创建时间</span>
 					</li>
 					<li v-for="(item,index) in list"> 
 						<span>{{item.username}}</span>
@@ -57,20 +57,68 @@ var usermanagement = {
 			"data":{
 				"lists":[
 					{
-						"username":"aa",
-						"appid":"Appid",
-						"mobileid":"asfasdfsdfa",
+						"username":"WANGSN",
+						"appid":"85647",
+						"mobileid":"256895674",
 						"phone":"15825658795",
-						"serialnum":"sdfasdfjfashdfhg",
-						"time":"2011-11-10 10:01:12"
+						"serialnum":"70 85 65 58 55 74",
+						"time":"2017-03-10 10:01:12"
 					},
 					{
-						"username":"aa",
-						"appid":"Appid2",
-						"mobileid":"asdfasdfasdfawef",
+						"username":"GDCA",
+						"appid":"544526",
+						"mobileid":"265895234",
 						"phone":"18825369856",
-						"serialnum":"rrrrrrrrrrrrrww1554",
-						"time":"2011-11-10 10:01:12"
+						"serialnum":"25 78 15 48 46 78",
+						"time":"2017-05-10 15:08:18"
+					},
+					{
+						"username":"YANBN",
+						"appid":"85647",
+						"mobileid":"256895674",
+						"phone":"15825658795",
+						"serialnum":"60 85 65 58 55 74",
+						"time":"2017-03-10 10:01:12"
+					},
+					{
+						"username":"TEST",
+						"appid":"544526",
+						"mobileid":"265895234",
+						"phone":"18825369856",
+						"serialnum":"28 78 15 48 46 78",
+						"time":"2017-05-10 15:08:18"
+					},
+					{
+						"username":"GDCA",
+						"appid":"544526",
+						"mobileid":"265895234",
+						"phone":"18825369856",
+						"serialnum":"89 78 15 48 46 78",
+						"time":"2017-05-10 15:08:18"
+					},
+					{
+						"username":"SASD",
+						"appid":"85647",
+						"mobileid":"256895674",
+						"phone":"15825658795",
+						"serialnum":"82 85 65 58 55 74",
+						"time":"2017-03-10 10:01:12"
+					},
+					{
+						"username":"TEST2",
+						"appid":"544526",
+						"mobileid":"265895234",
+						"phone":"18825369856",
+						"serialnum":"78 78 15 88 46 78",
+						"time":"2017-05-10 15:08:18"
+					},
+					{
+						"username":"SASD",
+						"appid":"544526",
+						"mobileid":"265895234",
+						"phone":"18825369856",
+						"serialnum":"25 78 19 48 46 77",
+						"time":"2017-05-10 15:08:18"
 					}
 				],
 				"totalPage":2,
@@ -85,6 +133,11 @@ export default {
 	  totalPage:null,
 	  currentPage:null
     }
+  },
+  computed:{
+	title(){
+		return this.$store.state.title;
+	}
   },
   methods:{
 	getData(){
@@ -113,6 +166,7 @@ export default {
   },
   mounted(){
 	this.getData();
+	document.title=this.title;
   }
 }
 </script>
